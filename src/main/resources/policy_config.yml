@@ -1,0 +1,30 @@
+acme_corp:
+  L1:
+    flight:
+      domesticClass: economy
+      internationalClass: economy
+      maxFareDomestic: 8000
+      maxFareInternational: 80000
+      allowedAirlines: [all]
+      advanceBookingDays: 7
+    hotel:
+      maxStarRating: 3
+      maxRatePerNight: 3000
+      allowedCities: [all]
+    perDiem: 1500
+    requiresApprovalAbove: 15000
+
+  L3:
+    flight:
+      domesticClass: business
+      internationalClass: business
+      maxFareDomestic: 25000
+      maxFareInternational: 200000
+      allowedAirlines: [all]
+      advanceBookingDays: 3
+    hotel:
+      maxStarRating: 5
+      maxRatePerNight: 12000
+      allowedCities: [all]
+    perDiem: 4000
+    requiresApprovalAbove: 100000

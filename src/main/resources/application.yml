@@ -1,0 +1,68 @@
+spring:
+  profiles:
+    active: dev    # switch to 'prod' for real HR connector
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/traveldesk
+    username: postgres
+    password: secret
+
+server:
+  port: 8080
+
+hr:
+  api:
+    url: https://your-workday-instance.com/api
+    api-key: ${HR_API_KEY}   # inject from env variable
+
+# application.yml — add this block at the bottom
+policy-map:
+  acme_corp:
+    L1:
+      flight:
+        domesticClass: economy
+        internationalClass: economy
+        maxFareDomestic: 8000
+        maxFareInternational: 80000
+        allowedAirlines:
+          - all
+        advanceBookingDays: 7
+      hotel:
+        maxStarRating: 3
+        maxRatePerNight: 3000
+        allowedCities:
+          - all
+      perDiem: 1500
+      requiresApprovalAbove: 15000
+    L2:
+      flight:
+        domesticClass: economy
+        internationalClass: business
+        maxFareDomestic: 15000
+        maxFareInternational: 120000
+        allowedAirlines:
+          - all
+        advanceBookingDays: 5
+      hotel:
+        maxStarRating: 4
+        maxRatePerNight: 6000
+        allowedCities:
+          - all
+      perDiem: 2500
+      requiresApprovalAbove: 50000
+    L3:
+      flight:
+        domesticClass: business
+        internationalClass: business
+        maxFareDomestic: 25000
+        maxFareInternational: 200000
+        allowedAirlines:
+          - all
+        advanceBookingDays: 3
+      hotel:
+        maxStarRating: 5
+        maxRatePerNight: 12000
+        allowedCities:
+          - all
+      perDiem: 4000
+      requiresApprovalAbove: 100000
